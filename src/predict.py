@@ -24,7 +24,6 @@ input_data = np.array([[90, 42, 43, 20.8, 82, 6.5, 200]])
 # STEP 1: CROP PREDICTION
 # =========================
 crop_prediction = crop_model.predict(input_data)[0]
-crop_prediction = crop_model.predict(input_data)[0]
 
 print("🌱 Recommended Crop:", crop_prediction)
 

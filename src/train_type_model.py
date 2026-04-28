@@ -1,6 +1,5 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.ensemble import RandomForestClassifier
 import joblib
@@ -30,14 +29,5 @@ accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
-# Create quantity (simple engineered feature)
-df['quantity'] = (
-    (150 - df['N']) * 0.3 +
-    (80 - df['P']) * 0.3 +
-    (80 - df['K']) * 0.4
-)
-
-# Ensure no negative values
-df['quantity'] = df['quantity'].apply(lambda x: max(x, 0))
-
-joblib.dump(model, 'models/fertilitly_type_model.pkl')
+joblib.dump(model, 'models/fertilizer_type_model.pkl')
+print("Fertilizer type model saved!")

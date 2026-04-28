@@ -9,12 +9,13 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1>🌾 Smart Agriculture</h1>
+      <h1>🌾 Smart Agriculture AI</h1>
+      <p className="subtitle">Crop recommendation, fertilizer advice & disease detection powered by ML</p>
 
       <div className="tabs">
-        <div className={`tab ${tab === "crop" && "active"}`} onClick={() => setTab("crop")}>Crop</div>
-        <div className={`tab ${tab === "fertilizer" && "active"}`} onClick={() => setTab("fertilizer")}>Fertilizer</div>
-        <div className={`tab ${tab === "disease" && "active"}`} onClick={() => setTab("disease")}>Disease</div>
+        <button className={`tab ${tab === "crop" ? "active" : ""}`} onClick={() => setTab("crop")}>🌱 Crop</button>
+        <button className={`tab ${tab === "fertilizer" ? "active" : ""}`} onClick={() => setTab("fertilizer")}>🧪 Fertilizer</button>
+        <button className={`tab ${tab === "disease" ? "active" : ""}`} onClick={() => setTab("disease")}>🦠 Disease</button>
       </div>
 
       {tab === "crop" && <CropForm />}
