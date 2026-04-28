@@ -1,0 +1,13 @@
+{
+  "executionEnvironments": [
+    {
+      "root": "backend",
+      "extraPaths": ["."]
+    },
+    {
+      "root": "api",
+      "extraPaths": ["."]
+    }
+  ],
+  "reportMissingImports": false
+}

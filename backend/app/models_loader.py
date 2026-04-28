@@ -27,39 +27,39 @@ def load_models():
     # --- sklearn models ---
     try:
         crop_model = joblib.load(os.path.join(MODEL_DIR, "crop_model.pkl"))
-        print("  ✔ crop_model loaded")
+        print("  [OK] crop_model loaded")
     except Exception as e:
         _load_errors["crop_model"] = str(e)
-        print(f"  ✘ crop_model failed: {e}")
+        print(f"  [FAIL] crop_model failed: {e}")
 
     try:
         fert_type_model = joblib.load(os.path.join(MODEL_DIR, "fertilizer_type_model.pkl"))
-        print("  ✔ fert_type_model loaded")
+        print("  [OK] fert_type_model loaded")
     except Exception as e:
         _load_errors["fert_type_model"] = str(e)
-        print(f"  ✘ fert_type_model failed: {e}")
+        print(f"  [FAIL] fert_type_model failed: {e}")
 
     try:
         fert_qty_model = joblib.load(os.path.join(MODEL_DIR, "fertilizer_quantity_model.pkl"))
-        print("  ✔ fert_qty_model loaded")
+        print("  [OK] fert_qty_model loaded")
     except Exception as e:
         _load_errors["fert_qty_model"] = str(e)
-        print(f"  ✘ fert_qty_model failed: {e}")
+        print(f"  [FAIL] fert_qty_model failed: {e}")
 
     # --- encoders ---
     try:
         crop_encoder = joblib.load(os.path.join(MODEL_DIR, "crop_encoder.pkl"))
-        print("  ✔ crop_encoder loaded")
+        print("  [OK] crop_encoder loaded")
     except Exception as e:
         _load_errors["crop_encoder"] = str(e)
-        print(f"  ✘ crop_encoder failed: {e}")
+        print(f"  [FAIL] crop_encoder failed: {e}")
 
     try:
         fert_encoder = joblib.load(os.path.join(MODEL_DIR, "fertilizer_encoder.pkl"))
-        print("  ✔ fert_encoder loaded")
+        print("  [OK] fert_encoder loaded")
     except Exception as e:
         _load_errors["fert_encoder"] = str(e)
-        print(f"  ✘ fert_encoder failed: {e}")
+        print(f"  [FAIL] fert_encoder failed: {e}")
 
     # --- disease DL model ---
     try:
@@ -94,16 +94,16 @@ def load_models():
 
         disease_model.to(device)
         disease_model.eval()
-        print("  ✔ disease_model loaded")
+        print("  [OK] disease_model loaded")
 
     except Exception as e:
         _load_errors["disease_model"] = str(e)
-        print(f"  ✘ disease_model failed: {e}")
+        print(f"  [FAIL] disease_model failed: {e}")
 
     if _load_errors:
-        print(f"\n⚠  {len(_load_errors)} model(s) failed to load — those endpoints will return 503")
+        print(f"\n[WARNING] {len(_load_errors)} model(s) failed to load -- those endpoints will return 503")
     else:
-        print("\n✅ All models and encoders loaded successfully!")
+        print("\n[SUCCESS] All models and encoders loaded successfully!")
 
 
 def get_status() -> dict:
